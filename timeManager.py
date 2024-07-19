@@ -129,7 +129,6 @@ def addEvent(creds, duration, description):
     print('Event created: %s' % (event.get('htmlLink')))
 
 def getHours(number_of_days):
-
     # get today's date
     today = datetime.date.today()
     seven_days_ago = today + datetime.timedelta(days=-int(number_of_days))
@@ -151,13 +150,5 @@ def getHours(number_of_days):
 
 
 
-
-
-
-
-
 if __name__ == '__main__':
     main()
-
-
-    
