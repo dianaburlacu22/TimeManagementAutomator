@@ -1,12 +1,16 @@
 import sqlite3
 
-conn = sqlite3.connect(f'hours.db')
-cur = conn.cursor()
-print("Opened database successfully")
+def create_database():
+    with sqlite3.connect('hours.db') as conn:
+        cur = conn.cursor()
+        cur.execute('''
+            CREATE TABLE IF NOT EXISTS hours (
+                DATE TEXT NOT NULL,
+                CATEGORY TEXT NOT NULL,
+                HOURS REAL NOT NULL
+            );
+        ''')
+        print("Database and table created successfully")
 
-
-conn.execute('''CREATE TABLE hours
-        (DATE       DATE    NOT NULL,
-        CATEGORY           TEXT    NOT NULL,
-        HOURS            INT     NOT NULL);''')
-print("Table created successfully")
+if __name__ == "__main__":
+    create_database()
